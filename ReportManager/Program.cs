@@ -62,7 +62,7 @@ namespace ReportManager
         {
             using (MailMessage mailMessage = new MailMessage())
             {
-                string file = "C:\\Project2017\\OfflineReport\\ReportManager\\templates\\template-2.html";
+                string file = "C:\\Project2017\\OfflineReport\\ReportManager\\templates\\template-1.html";
 
                 mailMessage.From = new MailAddress(ConfigurationManager.AppSettings["UserName"]);
                 mailMessage.Subject = subject;

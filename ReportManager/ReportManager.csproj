@@ -126,6 +126,7 @@
     <Content Include="pages\Template-1.html" />
     <Content Include="pages\typography.html" />
     <Content Include="Template-1.htm" />
+    <Content Include="templates\kpi.html" />
     <Content Include="templates\template-2.html" />
     <Content Include="templates\template-1.html" />
     <Content Include="vendor\bootstrap-social\bootstrap-social.css" />
