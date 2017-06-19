@@ -64,8 +64,8 @@ namespace ReportManager
             using (MailMessage mailMessage = new MailMessage())
             {
                
-                PopulateTemplate("Sales Report 2017", "Sales Report 2017");
-                string file = "C:\\Project2017\\OfflineReport\\ReportManager\\templates\\template.html";
+                PopulateTemplate("Sales Report 2016", "Sales Report 2016");
+                string file = "C:\\Project2017\\OfflineReport\\ReportManager\\temp\\template.html";
                 mailMessage.From = new MailAddress(ConfigurationManager.AppSettings["UserName"]);
                 mailMessage.Subject = subject;
                 mailMessage.Body = body;
@@ -94,16 +94,18 @@ namespace ReportManager
             string template = string.Empty;
 
             const string fileName = "C:\\Project2017\\OfflineReport\\ReportManager\\templates\\template.html";
+            const string outFileName = "C:\\Project2017\\OfflineReport\\ReportManager\\temp\\template.html";
 
             //Read HTML from file
             template = File.ReadAllText(fileName);
+            File.ReadAllText(outFileName);
 
             //Replace all values in the HTML
             template = template.Replace("{Title}", title ?? string.Empty);
             template = template.Replace("{ReportName}", reportName ?? string.Empty);
 
             //Write new HTML string to file
-            File.WriteAllText(fileName, template);
+            File.WriteAllText(outFileName, template);
 
         }
 

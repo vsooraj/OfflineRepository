@@ -3,4 +3,3 @@ C:\Project2017\OfflineReport\ReportManager\bin\Debug\ReportManager.exe
 C:\Project2017\OfflineReport\ReportManager\bin\Debug\ReportManager.pdb
 C:\Project2017\OfflineReport\ReportManager\obj\Debug\ReportManager.exe
 C:\Project2017\OfflineReport\ReportManager\obj\Debug\ReportManager.pdb
-C:\Project2017\OfflineReport\ReportManager\obj\Debug\ReportManager.csprojResolveAssemblyReference.cache
