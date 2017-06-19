@@ -3,6 +3,7 @@ using System.Configuration;
 using System.IO;
 using System.Net.Mail;
 using System.Net.Mime;
+using System.Text;
 
 namespace ReportManager
 {
@@ -57,13 +58,14 @@ namespace ReportManager
 
             return body;
         }
-
+       
         private void SendHtmlFormattedEmail(string recepientEmail, string subject, string body)
         {
             using (MailMessage mailMessage = new MailMessage())
             {
-                string file = "C:\\Project2017\\OfflineReport\\ReportManager\\templates\\template-1.html";
-
+               
+                PopulateTemplate("Sales Report 2017", "Sales Report 2017");
+                string file = "C:\\Project2017\\OfflineReport\\ReportManager\\templates\\template.html";
                 mailMessage.From = new MailAddress(ConfigurationManager.AppSettings["UserName"]);
                 mailMessage.Subject = subject;
                 mailMessage.Body = body;
@@ -86,5 +88,26 @@ namespace ReportManager
 
             }
         }
+
+        void PopulateTemplate(string title, string reportName)
+        {
+            string template = string.Empty;
+
+            const string fileName = "C:\\Project2017\\OfflineReport\\ReportManager\\templates\\template.html";
+
+            //Read HTML from file
+            template = File.ReadAllText(fileName);
+
+            //Replace all values in the HTML
+            template = template.Replace("{Title}", title ?? string.Empty);
+            template = template.Replace("{ReportName}", reportName ?? string.Empty);
+
+            //Write new HTML string to file
+            File.WriteAllText(fileName, template);
+
+        }
+
     }
 }
+
+
