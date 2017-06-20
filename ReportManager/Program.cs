@@ -104,6 +104,33 @@ namespace ReportManager
             template = template.Replace("{Title}", title ?? string.Empty);
             template = template.Replace("{ReportName}", reportName ?? string.Empty);
 
+            string comingsoon = string.Empty;
+            using (StreamReader reader = new StreamReader("C:\\Project2017\\OfflineReport\\ReportManager\\templates\\comingsoon.html"))
+            {
+                comingsoon = reader.ReadToEnd();
+            }
+            //comingsoon = comingsoon.Replace("{FillFrame1}", comingsoon ?? string.Empty);
+
+            string pie_chart =string.Empty;
+            using (StreamReader reader = new StreamReader("C:\\Project2017\\OfflineReport\\ReportManager\\templates\\pie_chart.html"))
+            {
+                pie_chart = reader.ReadToEnd();
+            }
+            //pie_chart= "";
+            //if (pie_chart == "") 
+            //    pie_chart = pie_chart.Replace("{FillFrame1}", comingsoon);
+            //else
+                pie_chart = pie_chart.Replace("{FillFrame1}", pie_chart?? comingsoon);
+
+
+            string temp_report = string.Empty;
+            using (StreamReader reader = new StreamReader("C:\\Project2017\\OfflineReport\\ReportManager\\templates\\report.html"))
+            {
+                temp_report = reader.ReadToEnd();
+            }
+            temp_report = temp_report.Replace("{FillFrame1}", pie_chart ?? comingsoon);
+
+            template = template.Replace("{Report}", temp_report ?? string.Empty);
             //Write new HTML string to file
             File.WriteAllText(outFileName, template);
 

@@ -1,0 +1,24 @@
+﻿<div class="col-lg-12">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            PIE CHART
+        </div>
+        <!-- /.panel-heading -->
+        <div class="panel-body">
+            <svg id="piechart">
+                <filter id="dropshadow" height="150%">
+                    <feGaussianBlur in="SourceAlpha" stdDeviation="2" /> <!-- stdDeviation is how much to blur -->
+                    <feOffset dx="1" dy="1" result="offsetblur" /> <!-- how much to offset -->
+                    <feMerge>
+                        <feMergeNode /> <!-- this contains the offset blurred image -->
+                        <feMergeNode in="SourceGraphic" /> <!-- this contains the element that the filter is applied to -->
+                    </feMerge>
+                </filter>
+            </svg>
+        </div>
+        <!-- /.panel-body -->
+    </div>
+    <!-- /.panel -->
+
+   
+</div>
